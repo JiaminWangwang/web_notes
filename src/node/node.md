@@ -35,5 +35,22 @@ Express 是一个基于node.js的服务端框架
 #### 2.可视化图形操作
 + Navicat Premium
 
+#### 3.通过后端代码去操作MongoDB
+#### Mongoose
+Mongoose是Nodejs中提供的一个用于便捷操作MongoDB的库。
+
+#### 下载
+`npm i mongoose --save`
+
+#### 连接MongoDB
+将express项目与MongoDB连接
+
+`// 连接MongoDB `
+`const mongoose = require('mongoose');`
+`const dbURI = 'mongodb://localhost:27017/studentsSystem'; // studentsSystem是数据库名称`
+```mongoose.connect(dbURI, {useNewUrlParser: true, useUnifiedTopology: true});```
+```mongoose.connection.on('connected', function() {```
+    ```console.log(dbURI + '数据库连接成功');```
+```})```
 ## navicat
 1. 安装navicat
