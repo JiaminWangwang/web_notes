@@ -19,18 +19,30 @@ Express 是一个基于node.js的服务端框架
 ### MongoDB使用
 #### 1.命令行操作
 1. 查看当前MongoDB中所有的数据库
-```show dbs```
+```
+show dbs
+```
 2. 查看当前指向的数据库
-```db```
+```
+db
+```
 3. 新建/切换数据库
-```use 数据库名称```
+```
+use 数据库名称
+```
 4. 查看当前数据库中所有的集合
-`show collections`
+```
+show collections
+```
 5. 往集合中添加数据（如果该集合不存在，则会自动创建该集合）
-`db.集合名称.insert({name: '张三', age: '20', gender: '男})`
+```sql
+db.集合名称.insert({name: '张三', age: '20', gender: '男})
+```
 6. 查看某个集合中所有的数据
-`db.集合名称.find()`
-`db.集合名称.find().pretty()`
+```sql
+db.集合名称.find()
+db.集合名称.find().pretty()
+```
 
 #### 2.可视化图形操作
 + Navicat Premium
@@ -40,17 +52,25 @@ Express 是一个基于node.js的服务端框架
 Mongoose是Nodejs中提供的一个用于便捷操作MongoDB的库。
 
 #### 下载
-`npm i mongoose --save`
+```
+npm i mongoose --save
+```
 
 #### 连接MongoDB
 将express项目与MongoDB连接
 
-`// 连接MongoDB `
-`const mongoose = require('mongoose');`
-`const dbURI = 'mongodb://localhost:27017/studentsSystem'; // studentsSystem是数据库名称`
-```mongoose.connect(dbURI, {useNewUrlParser: true, useUnifiedTopology: true});```
-```mongoose.connection.on('connected', function() {```
-    ```console.log(dbURI + '数据库连接成功');```
-```})```
+```js
+// 连接MongoDB 
+const mongoose = require('mongoose');
+
+//studentsSystem是数据库名称
+const dbURI = 'mongodb://localhost:27017/studentsSystem'; 
+
+mongoose.connect(dbURI, {useNewUrlParser: true, useUnifiedTopology: true});
+
+mongoose.connection.on('connected', function() {
+   console.log(dbURI + '数据库连接成功');
+});
+```
 ## navicat
 1. 安装navicat
