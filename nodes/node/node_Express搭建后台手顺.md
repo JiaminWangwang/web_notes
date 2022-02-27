@@ -1,4 +1,5 @@
 ## Node_Express搭建前后台手顺
+[Express官网](https://www.expressjs.com.cn/)
 **前提：已安装nodejs**
 1. 全局安装express-generator(exExpress应用生成器)
     ```js
@@ -37,3 +38,5 @@
     // 安装之后启动服务可以用命令
     nodemon app.js
     ```
+    nodemon 命令报错
+    [ 解决方案参考](https://blog.csdn.net/webjxy/article/details/121193543)
