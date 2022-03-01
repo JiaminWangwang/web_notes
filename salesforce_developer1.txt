@@ -1,0 +1,74 @@
+考试准备过程
+1.自学trailhead上的内容（部分学习即可，简单了解下内容和形式）
+· Trail: https://trailhead.salesforce.com/en/content/learn/trails/platform-developer-i-certification-study-guide
+· Trailmix:  https://trailhead.salesforce.com/en/users/strailhead/trailmixes/prepare-for-your-salesforce-platform-developer-i-credential
+· Superbadge: https://trailhead.salesforce.com/content/learn/superbadges/superbadge_apex
+2.刷一遍自由侠部落的题库
+· 平台初级开发（Platform Developer I）模拟题库&测验
+  http://www.51free.online/#/course/1f7145699649403c9465133ddfaf13a2
+3.根据PDV1考纲，有重点的阅读salesforce-user-Guide，掌握知识点
+  例：Process Automation and Logic部分，参考salesforce_soql_sosl、salesforce_soql_sosl
+    User Interface部分，参考salesforce_pages_developers_guide
+4.考试大纲在每次release时可能会有不同程度的变更，考试前自行关注~
+
+另，salesforce 考试预约平台 https://www.webassessor.com/
+内容:60个单项选择题/多项选择题，最多5个不计分题
+考试时间:105分钟
+通过得分:68%
+注册费:200美元
+补考费:100美元
+
+附录①附加资源userGuide
+lightning.pdf
+salesforce_pages_developers_guide.pdf
+salesforce_app_limits_cheatsheet.pdf
+salesforce_apex_developer_guide.pdf
+platform_events.pdf
+salesforce_soql_sosl.pdf
+
+附录②考试大纲（2022/01/26更新）
+· Salesforce Fundamentals: 7%
+· Data Modeling and Management: 13%
+· Process Automation and Logic: 40%
+· User Interface: 23%
+· Testing, Debugging, and Deployment: 17%
+
+Salesforce Fundamentals: 7%
+· Describe the considerations and follow best practices when developing in a multi-tenant environment.
+· Understand design frameworks, such as MVC architecture and Lightning Component Framework, and how to build applications using both declarative and programmatic tools.
+· Given a scenario, identify common use cases for declarative versus programmatic customizations.
+
+Data Modeling and Management: 13%
+· Given a set of requirements, determine, create, and access the appropriate data model including objects, fields, and relationships.
+· Describe the capabilities of the various relationship types and custom IDs and the implications of each on record access and development.
+· Describe the options for and considerations when importing and exporting data into development environments.
+· Describe the capabilities and use cases for formula fields and roll-up summary fields.
+
+Process Automation and Logic: 40%
+· Describe the capabilities of the declarative process automation features.
+· Declare variables, constants, methods, and use modifiers and interfaces in Apex.
+· Given a scenario, use and apply Apex control flow statements.
+· Given a scenario, write SOSL, SOQL, and DML statements in Apex.
+· Given a use case and following best practices, write Apex classes and triggers and use Apex interfaces.
+· Given a scenario, identify the implications of governor limits on Apex transactions.
+· Describe the relationship between Apex transactions, the save order of execution, and the potential for recursion and/or cascading.
+· Implement exception handling in Apex, including custom exceptions as needed.
+· Use programmatic techniques to prevent security vulnerabilities.
+· Given a scenario, use declarative functionality and Apex together to automate business logic.
+· Given a scenario, identify the appropriate publish/subscribe logic for platform events.
+
+User Interface: 23%
+· Given a scenario, display content or modify Salesforce data using a Visualforce page and the appropriate controllers or extensions as needed.
+· Incorporate Visualforce pages into Lightning Platform applications.
+· Describe the Lightning Component framework, its benefits, and the types of content that can be contained in a Lightning web component.
+· Given a scenario, prevent user interface and data access security vulnerabilities. 
+· Given a scenario, display and use a custom user interface components, including Lightning Components, Flow, and Visualforce.
+· Describe the use cases for Lightning Web Component or Aura Component events.
+· Given a user interface requirement, describe interactions between Apex and various types of page components, including Lightning Components, Flow, Next Best Actions, etc.
+
+Testing, Debugging, and Deployment: 17%
+· Write and execute tests for triggers, controllers, classes, flows, and processes using various sources of test data.
+· Describe the use cases for invoking Apex anonymous code and Apex unit tests.
+· Describe the Salesforce Developer tools such as Salesforce DX, Salesforce CLI, and Developer Console, and when to use them.
+· Describe how to approach debugging system issues and monitoring flows, processes, and asynchronous and batch jobs, etc.
+· Describe the environments, requirements, and process for deploying code and associated configurations.
