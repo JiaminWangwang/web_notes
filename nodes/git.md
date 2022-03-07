@@ -1,8 +1,20 @@
 ## 基本操作
 + 新建分支
+```js
+git branch branchName // 
+```
 + 切换分支
+```js
+git checkout branchName  // 
+```
 + 更新代码
+```js
+git fetch // 更新远程代码到本地仓库
+git pull // 更新代码到本地分支
+```
 + 合并代码
+    - git merge
+    - git rebase
 + 提交代码
 + 想复制某次提交到当前分支
 
