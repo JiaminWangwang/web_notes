@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>创建对象的几种方式</title>
+</head>
+<body>
+    <script>
+        /**
+         * 工厂模式：
+         * 实现方式：函数内部使用构造函数通过new操作符创建原型对象，函数返回值是对象原型
+         * 缺点：没有解决对象标识问题(即新创建的对象时什么类型)
+         */
+        function createPerson(name, age, job) {
+            let o = new Object();
+            o.name = name;
+            o.age = age;
+            o.job = job;
+            o.sayName = function() {
+                console.log(this.name);
+            }
+            return o;
+        }
+
+        let person1 = createPerson('张三', 18, '工人');
+        let person2 = createPerson('李四', 19, '老师');
+        console.log(person1) // {name: '张三', age: 18, job: '工人', sayName: ƒ}
+        console.log(person2); // {name: '李四', age: 19, job: '老师', sayName: ƒ}
+        console.log(person1.sayName == person2.sayName) // false
+
+        /**
+         * 构造函数模式
+         * 创建Person实例时，使用了new操作符：
+         *      1. 在内存中创建了一个新对象
+         *      2. 这个新对象内部的[[Prototype]]特性被赋值为构造函数的prototype属性
+         *      3. 构造函数内部的this指向这个新对象。
+         *      4. 新对象拥有构造函数内部的属性
+         *      5. 如果构造函数返回非空对象，则返回该对象；否则，返回刚创建的新对象。
+         * 构造函数的问题：
+         *      其定义的方法会在每个实例上都创建一遍
+         */
+        function Person(name, age, job) {
+            this.name = name;
+            this.age = age;
+            this.job = job;
+            this.sayName = function() {
+                console.log(this)
+                console.log(this.name);
+            }
+            // let o = new Array()
+            // return o;
+            // return null;
+        }
+
+        let person3 = new Person('张三',20,'后端开发');
+        let person4 = new Person('李四',21,'数据库开发');
+        person3.sayName(); // 张三
+        person4.sayName(); // 李四
+
+        /**
+         *  age: 20
+         * job: "后端开发"
+         * name: "张三"
+         * sayName: ƒ ()
+         * [[Prototype]]: Object
+         */
+        console.log(person3);
+        console.log(person3.constructor === Person) // true, constructor: 用来标识对象类型
+        console.log(person3 instanceof Object);  // true, 一般认为instanceof操作符是确定对象类型更可靠的方式
+       
+
+        /**
+         * 原型模式
+         * 
+         */
+
+    </script>
+</body>
+</html>
