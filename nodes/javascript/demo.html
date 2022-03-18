@@ -5,26 +5,23 @@
     <title>demo</title>
 </head>
 <body>
+    <img src="" alt="">
     <script type="text/javascript">
-        var name = '小王', age=17;
-        var obj = {
-            name: '小张',
-            objAge: this.age,
-            myFun: function(fm, t) {
-                console.log(this.name + ' 年龄 ' + this.age,' 来自 ' + fm + '去往' + t);
-            }
-        }
+    /**
+     * 构造函数可以是函数表达式，也可以是函数声明
+     * function Preson() {}
+     * let Person = function() {}
+     */
+    function Person() {}
+    let person1 = new Person();
+    Person.prototype = {
+        name: 'nike'
+    }
 
-        var db = {
-            name: '德玛',
-            age: 99
-        }
+    let person2 = new Person();
 
-        obj.myFun.call(db,'成都','上海');　　　　 // 德玛 年龄 99  来自 成都去往上海
-        obj.myFun.apply(db,['成都','上海']);      // 德玛 年龄 99  来自 成都去往上海  
-        obj.myFun.bind(db,'成都','上海')();       // 德玛 年龄 99  来自 成都去往上海
-        obj.myFun.bind(db,['成都','上海'])();　　 // 德玛 年龄 99  来自 成都, 上海去往 undefined
-        obj.myFun.bind(this, '佳木斯','南京')();  // 小王 年龄 17  来自 佳木斯去往南京
+    console.log(person1.name)  // undefined
+    console.log(person2.name) // nike
     </script>
 </body>
 </html>
