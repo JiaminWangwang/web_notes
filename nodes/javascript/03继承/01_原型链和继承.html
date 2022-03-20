@@ -10,37 +10,31 @@
         function SuperType() {
             this.property = true;
         }
-
         SuperType.prototype.getSuperValue = function () {
             return this.property;
         }
-
         function SubType() {
             this.subproperty = false;
         }
-
         // 继承SuperType, 重写了SubType最初的原型
         SubType.prototype = new SuperType();
-
         SubType.prototype.getSubValue = function() {
             return this.subproperty;
         }
-
         let instance = new SubType()
-
-        console.log(instance.getSuperValue())
+        console.log(instance.getSuperValue()) // true
 
         // 原型与实例关系的确认方法
         // 方法一：使用instanceof操作符，如果一个实例的原型链中出现过相应的构造函数，则instanceof返回true。
-        console.log(instance instanceof Object)  // true
-        console.log(instance instanceof SuperType) // true
-        console.log(instance instanceof String) // false
-        console.log(instance instanceof SubType) // true
+        // console.log(instance instanceof Object)  // true
+        // console.log(instance instanceof SuperType) // true
+        // console.log(instance instanceof String) // false
+        // console.log(instance instanceof SubType) // true
 
-        // 方法二：isPrototypeOf()方法。原型链中的每个原型都可以调用这个方法。
-        console.log(Object.prototype.isPrototypeOf(instance)) // true
-        console.log(SuperType.prototype.isPrototypeOf(instance)) // true
-        console.log(SubType.prototype.isPrototypeOf(instance)) // true
+        // // 方法二：isPrototypeOf()方法。原型链中的每个原型都可以调用这个方法。
+        // console.log(Object.prototype.isPrototypeOf(instance)) // true
+        // console.log(SuperType.prototype.isPrototypeOf(instance)) // true
+        // console.log(SubType.prototype.isPrototypeOf(instance)) // true
 
     </script>
 </body>
