@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>定义类</title>
+</head>
+<body>
+    <script type="text/javascript" src="../js/babel.min.js"></script>
+    <script type="text/babel">
+        // class Person {}
+
+        // const Animal = class {};
+
+        // console.log(Person)
+
+        // let Person = class PersonName {
+        //     identify() {
+        //         console.log(Person.name, PersonName.name);
+        //     }
+        // }
+        // let p = new Person();
+        // p.identify(); // PersonName PersonName
+        // console.log(Person.name); // PersonName
+        // console.log(PersonName) // ReferenceError: PersonName is not defined
+
+        // class Animal {}
+        // class Person {
+        //     constructor() {
+        //         console.log('person ctor')
+        //     }
+        // }
+
+        // class Vegetable {
+        //     constructor() {
+        //         this.color = 'orange';
+        //     }
+        // }
+
+        // let a = new Animal();
+        // let p = new Person(); // person ctor
+        // let v = new Vegetable();
+
+        // console.log(v.color); // orange
+
+        // class Person {
+        //     constructor(name) {
+        //         console.log(arguments.length);
+        //         this.name = name || null;
+        //     }
+        // }
+
+        // let p1 = new Person();
+        // let p2 = new Person();
+        // let p3 = new Person('Jake');
+        // console.log(p3.name) 
+
+        class Person {
+            constructor(override) {
+                this.foo = 'foo';
+                if (override) {
+                    return 
+                        this.bar = 'bar'
+                    ;
+                }
+            }
+        }
+
+        let p1 = new Person(),
+            p2 = new Person(true);
+        
+        console.log(p1);
+        console.log(p1 instanceof Person); 
+
+        console.log(p2);
+        console.log(p2 instanceof Person);
+
+
+    </script>
+</body>
+</html>
