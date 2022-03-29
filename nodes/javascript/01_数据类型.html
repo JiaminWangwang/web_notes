@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+            简单数据类型(原始类型)：
+                undefined(未声明和未赋值)
+                null(空对象指针，typeof值为object), 
+                number,
+                string,
+                boolean(false，空字符串，0，NAN，null，undefined),
+                symbol,
+            复杂数据类型：Object(对象)
+        */
+        console.log(typeof(a))  // undefined
+
+        let b;
+        console.log(typeof(b))  // undefined
+
+        let c=null
+        console.log(typeof(c)) // object
+
+        console.log('c === null ==>', c === null); // true
+
+        const handle = ()=> {
+            return null
+        }
+        console.log(typeof(handle)) // function
+        console.log(typeof(handle())) // object
+
+        const d = Symbol('a');
+        const food = Symbol();
+        console.log(typeof(d)) // symbol
+
+        const aObj = {a: '1', b: '2'}
+        console.log(typeof(aObj)) // object
+
+        // 转成字符串的两种方式
+            let a = 1;
+            a = a.toString()
+            a = a + ''
+    </script>
+</body>
+</html>

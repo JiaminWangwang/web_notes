@@ -17,6 +17,14 @@
     ```js
     npm start
     ```
+    + 修改端口号：
+    ```js
+    // module.exports = app;
+
+    // 更改项目的启动命令：node app.js
+    const porint = 5000;
+    app.listen(porint, () => { console.log( porint + '端口启动成功')})
+    ```
 5. 在浏览器中输入以下地址：
     ```js
     // localhost:3000
