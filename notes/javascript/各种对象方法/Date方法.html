@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date对象方法</title>
+</head>
+<body>
+    <script>
+        /*
+            当前时间：2022年4月20日, 星期三
+        */
+        const d = new Date();
+        
+        d.getDate(); // 20 -- 返回一个月中的某一天(1~31)
+        d.getDay(); // 3 -- 返回一周中的某一天（0～6）
+        d.getFullYear(); // 2022 -- 返回年份
+        d.getHours(); // 15 -- 返回小时（0～23）
+        d.getMinutes(); // 43 -- 返回分钟
+        d.getMonth(); // 3 -- 返回月份（0～11），实际月份需要加1
+        d.getSeconds(); // 13 -- 返回秒数（0～59）
+        d.valueOf(); // 1650437716530 -- 返回时间戳
+        d.getTime(); // 1650437752253 -- 返回时间戳
+
+        console.log(d.getTime())
+    </script>
+</body>
+</html>
