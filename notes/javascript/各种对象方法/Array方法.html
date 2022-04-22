@@ -55,6 +55,7 @@
             console.log('arr', arr)
         }
 
+        /* ------------------------------------------------------------------------------------- */
         /*
             改变原数组的方法（9个）:
                 splice()
@@ -101,10 +102,331 @@
             console.log('b', b)  // [1, 2, 3, 4, 5, '添加1', '添加2']
             console.log('item3', item3)  // [6, 7]
 
-            // eg3: 
+            // eg3: 不删除只添加
+            let a11 = [1, 2, 3,4,5,6,7]
+            let item11 = a11.splice(0, 0, '添加1', '添加2'); // [] 没有删除元素，返回空数组
+            console.log('a11', a11);  // ['添加1', '添加2', 1, 2, 3,4,5,6,7]
             
+            let b1 = [1,2,3,4,5,6,7];
+            let item111 = b1.splice(-1, 0, '添加1', '添加2') // [] 没有删除元素，返回空数组
+            console.log('b1', b1); // [1,2,3,4,5,6,'添加1', '添加2',7] 在最后一个元素的前面添加两个元素
 
+
+            /* 
+                从上面三个例子可以得出：
+                1. 数组如果元素不够，会删除到最后一个元素为止
+                2. 操作的元素，包括开始的那个元素
+                3. 可以添加很多个元素
+                4. 添加是在开始的元素前面添加的
+            */
         }
+
+        /*
+            sort()数组排序
+            对数组元素进行排序，并返回排序后的数组。
+            参数：
+                可选：规定排序顺序的比较函数
+
+            默认情况下sort()方法没有传比较函数的话，默认按字母升序，
+            如果不是元素不是字符串的话，会调用toString()方法将元素
+            转化为字符串的Unicode(万国码)位点，然后再比较字符。
+        */
+        {
+            // 字符串排列
+            let a = ["Banana", "Orange", "Apple", "Mango"];
+            a.sort();
+            console.log('a', a) // ['Apple', 'Banana', 'Mango', 'Orange']
+
+            // 数字排序, 因为转换成Unicode字符串之后，有些数字会比较大会排在后面 这显然不是我们想要的
+            let b = [10, 1, 3, 20,25,8];
+            b.sort();
+            console.log('b', b)  // [1, 10, 20, 25, 3, 8]
+        }
+
+         /*
+            比较函数的两个参数：
+                sort的比较函数有两个默认参数，要在函数中接收这两个参数，
+                这两个参数是数组中两个要比较多元素，通常我们用 a 和 b 接收
+                两个将要比较的元素：
+                - 若比较函数返回值 < 0, 那么 a 将排在 b 的前面
+                - 若比较函数返回值 = 0, 那么 a 和 b 相对位置不变
+                - 若比较函数返回值 > 0, 那么 b 将排在 a 的前面
+        */
+        // # sort排序常见用法:
+        {
+            // 1. 数组元素为数字的升序、降序：
+            let array = [10, 1, 3, 4,20,4,25,8];
+            // 升序 a-b < 0  a将排到b的前面，按照a的大小来排序的
+            // 比如被减数a是10，减数是20  10-20 < 0   被减数a(10)在减数b(20)前面
+            array.sort(function(a, b) {
+                return a-b;
+            })
+            console.log('array', array) // [1, 3, 4, 4, 8, 10, 20, 25]
+
+            // 降序 被减数和减数调换了  20-10>0 被减数b(20)在减数a(10)的前面
+            array.sort(function(a, b) {
+                return b-a;
+            })
+            console.log('array', array) // [25, 20, 10, 8, 4, 4, 3, 1]
+        }
+
+        {
+            // 2. 数组多条件排序
+            var array = [{id:10,age:2},{id:5,age:4},{id:6,age:10},{id:9,age:6},{id:2,age:8},{id:10,age:9}];
+            array.sort(function(a, b){
+                if (a.id === b.id) { //  如果id的值相等，按照age的值降序
+                    return b.age - a.age
+                } else { // 如果id的值不相等，按照id的值升序
+                    return a.id - b.id
+                }
+            })
+
+            console.log('array', array) // [{"id":2,"age":8},{"id":5,"age":4},{"id":6,"age":10},{"id":9,"age":6},{"id":10,"age":9},{"id":10,"age":2}]
+        }
+
+        {
+            // 运用好返回值，可以写出任意符合自己需求的比较函数
+            var array = [{name:'Koro1'},{name:'Koro1'},{name:'OB'},{name:'Koro1'},{name:'OB'},{name:'OB'}];
+            array.sort(function(a,b){
+                if(a.name === 'Koro1'){// 如果name是'Koro1' 返回-1 ，-1<0 a排在b的前面
+                    return -1
+                }else{ // 如果不是的话，a排在b的后面
+                  return 1
+                }
+            })
+            // [{"name":"Koro1"},{"name":"Koro1"},{"name":"Koro1"},{"name":"OB"},{"name":"OB"},{"name":"OB"}]         
+        }
+
+        /*
+            pop() 删除一个数组中的最后一个元素
+                返回值是删除的这个元素
+        */
+        {
+            let a = [1,2,3]
+            let item = a.pop()
+            console.log('a', a) // [1,2]
+            console.log('item', item) // 3
+        }
+
+        /*
+            shift() 删除数组的第一个元素
+                返回值是删除的这个元素
+        */
+        {
+            let a = [1, 2, 3];
+            let item = a.shift()
+            console.log('a', a) // [2, 3]
+            console.log('item', item) // 1
+        }
+
+        /*
+            push() 向数组的末尾添加元素
+                返回新数组的长度
+        */
+        {
+            let a =[1, 2, 3];
+            let item = a.push('末尾')
+            console.log('a', a) // [1, 2, 3, '末尾']
+            console.log('item', item) // 4
+        }
+
+        /*
+            unshift() 向数组的开头添加一个或更多元素
+                    返回新数组的长度
+        */
+        {
+            let a = [1, 2, 3]
+            let item = a.unshift('开头');
+            console.log('a', a); // ['开头', 1, 2, 3]
+            console.log('item', item); // 4
+        }
+
+        /*
+            reverse() 颠倒数组中元素的顺序
+        */
+        {
+            let a = [1, 2, 3];
+            a.reverse();
+            console.log('a', a); // [3, 2, 1]
+        }
+
+        /*
+            ES6: copyWithin(target, start = 0, end = this.length) 指定位置的成员复制到其他位置
+                在当前数组内部，将指定位置的成员复制到其他位置，并返回这个数组
+            参数：
+                1. target(必需)：从该位置开始替换数据，如果为负值，表示倒数。
+                2. start(可选)：从该位置开始读取数据，默认为0。如果为负值，表示倒数。
+                3. end(可选)：到该位置前停止读取数据，默认等于数组长度。使用负数可从数组结尾处规定位置。
+        */
+
+        // eg:
+        {
+            // -2相当于3号位，-1相当于4号位
+            [1,2,3,4,5].copyWithin(0, -2, -1)  // [4,2,3,4,5]
+            const a = ['OB1','Koro1','OB2','Koro2','OB3','Koro3','OB4','Koro4','OB5','Koro5']
+            // 2位置开始被替换，3位置开始读取要替换的，5位置前面停止替换
+            const d = a.copyWithin(2,3,5) // ['OB1','Koro1','Koro2','OB3','OB3','Koro3','OB4','Koro4','OB5','Koro5']
+
+            /*
+                从上述例子：
+                    1. 第一个参数是开始被替换的元素位置
+                    2. 要替换数据的位置范围：从第二个参数是开始读取的元素，在第三个参数前面一个元素停止读取
+                    3. 数组的长度不会改变
+                    4. **读了几个元素就从开始被替换的地方替换几个元素**
+            */
+        }
+
+        /*
+            ES6:fill(a, b, c) 填充数组
+                使用给定值，填充一个数组
+            参数：
+                1. a(必需)：要填充数组的值
+                2. b(可选)：填充的开始位置，默认值为0
+                3. c(可选)：填充的结束位置，默认是为this.length
+        */
+        {
+            let a = ['a', 'b', 'c'].fill(7) // [7,7,7]
+            let b = ['a', 'b', 'd'].fill(7, 1, 2) // ['a', 7, 'd']
+            console.log(a, b)
+        }
+       
+        /* ---------------------------------------------------------------------------------------- */
+        /*
+            不改变原数组的方法（8个）:
+                slice()
+                join()
+                toLocateString()
+                toStrigin()
+                concat()
+                indexOf()
+                lastIndexOf()
+                ES7: includes()
+        */
+
+        /*
+            slice() 浅拷贝数组的元素
+        */
+        {
+            let a = ['hello', 'world']
+            let b = a.slice(0, 1); // ['hello']
+            a[0] = '改变原数组';
+            console.log(a, b); // ['改变原数组', 'world'], ['hello']
+        }
+        {
+            let a= [{name:'OBKoro1'}];
+            let b=a.slice();
+            console.log(b,a); // [{"name":"OBKoro1"}]  [{"name":"OBKoro1"}]
+            a[0].name='改变原数组';
+            //console.log(b,a); // [{"name":"改变原数组"}] [{"name":"改变原数组"}]
+            //b[0].name='改变拷贝数组',b[0].koro='改变拷贝数组';
+            //console.log(b, a)
+            //  [{"name":"改变拷贝数组","koro":"改变拷贝数组"}] [{"name":"改变拷贝数组","koro":"改变拷贝数组"}]        
+        }
+
+        /*
+            join(str) 数组转字符串
+            参数：
+                str(可选)：指定要使用的分隔符，默认使用逗号作为分隔符
+        */
+        {
+            ['hello', 'world'].join(); // 'hello, world'
+        }
+
+        /*
+            toLocalString() 数组转字符串
+        */
+
+        /*
+            concat() 方法用于合并两个或多个数组，返回一个新数组
+            ES6扩展运算符 ... 合并数组：
+        */
+        {
+            let a = [2,3,4,5]
+            let b = [4, ...a, 4,4]
+            console.log(a, b) // [2,3,4,5], [4,2,3,4,5,4,4]
+        }
+
+        /*
+            indexOf() 查找数组是否存在某个元素，返回下标
+            定义：返回在数组中可以找到一个给定元素的第一个索引，如果不存在，则返回-1
+            注：数组元素要完全匹配才能搜索成功，indexOf()不能识别NaN
+        */
+        {
+            // array.indexOf(searchElement, fromIndex)
+            let a = ['啦啦',2,4,24,NaN]
+            console.log(a.indexOf('啦')); // -1
+            console.log(a.indexOf(NaN)); // -1
+            console.log(a.indexOf('啦啦')) // 0
+
+            /*
+                使用场景：
+                    1，数组去重
+                    2. 根据获取的数组下标执行操作，改变数组中的值等
+                    3. 判断是否存在，执行操作
+            */
+        }
+
+        /*
+            lastIndexOf() 从数组后面往前查找，返回指定元素在数组中的最后一个的索引，如果不存在则返回-1。
+            语法： arr.lastIndexOf(searchElement, fromIndex)
+            关于fromIndex有三个规则:
+                正值。如果该值大于或等于数组的长度，则整个数组会被查找。
+                负值。将其视为从数组末尾向前的偏移。(比如-2，从数组最后第二个元素开始往前查找)
+                负值。其绝对值大于数组长度，则方法返回 -1，即数组不会被查找。
+        */
+        {
+            let a=['OB',4,'Koro1',1,2,'Koro1',3,4,5,'Koro1']; // 数组长度为10
+            // let b=a.lastIndexOf('Koro1',4); // 从下标4开始往前找 返回下标2
+            // let b=a.lastIndexOf('Koro1',100); //  大于或数组的长度 查找整个数组 返回9
+            // let b=a.lastIndexOf('Koro1',-11); // -1 数组不会被查找
+            let b=a.lastIndexOf('Koro1',-9); // 从第二个元素4往前查找，没有找到 返回-1
+        }
+
+        /*
+            ES7 includes() 查找数组是否包含某个元素 返回布尔值
+            语法：array.includes(searchElement, fromIndex=0)
+            参数：
+                searchElement(必须):被查找的元素
+                fromIndex(可选):默认值为0，参数表示搜索的起始位置，接受负值。正值超过数组长度，数组不会被搜索，返回false。负值绝对值超过长数组度，重置从0开始搜索。
+            includes方法是为了弥补indexOf方法的缺陷而出现的：
+                1. indexOf方法不能识别NaN
+                2. indexOf方法检查是否包含某个值不够语义化，需要判断是否不等于-1，表达不够直观
+        */
+        {
+            let a=['OB','Koro1',1,NaN];
+            // let b = a.includes(NaN); // true 识别NaN
+            // let b = a.includes('Koro1', 100); // false 超出数组长度，不给搜索
+            // let b = a.includes('Koro1', -3); // true 从倒数第三个元素开始搜索
+            let b = a.includes('Koro1', -100); // true 负值绝对值超过数组长度，搜索整个数组
+
+            console.log(b)
+        }
+
+
+        /* ---------------------------------------------------------------------------------------- */
+        /*
+            遍历数组方法（12个）:
+                ES5:
+                    forEach()
+                    every()
+                    some()
+                    filter()
+                    map()
+                    reduce()
+                    reduceRight()
+                ES6:
+                    find()
+                    findIndex()
+                    keys()
+                    values()
+                    entries()
+        */
+
+        {
+            let arr = []
+        }
+
+
     
     </script>
 </body>
